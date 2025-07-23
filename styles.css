@@ -1,0 +1,83 @@
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Menú fijo */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  background: white;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+}
+
+main {
+  padding-top: 80px; /* para compensar el header fijo */
+}
+
+/* Secciones */
+section {
+  padding: 70px 0;
+  scroll-margin-top: 80px; /* para que no quede oculto por el header al hacer scroll */
+}
+
+/* Banner */
+.main-banner {
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+  color: white;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.main-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.main-banner .banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.main-banner h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-banner p {
+  font-size: 1.2rem;
+}
+
+/* Ponentes */
+.ponentes .card img {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Footer */
+footer {
+  background: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Smooth scroll offset fix for browsers that don't support scroll-margin-top */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
