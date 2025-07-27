@@ -21,7 +21,7 @@ main {
 /* Secciones */
 section {
   padding: 70px 0;
-  scroll-margin-top: 80px; /* para que no quede oculto por el header al hacer scroll */
+  scroll-margin-top: 80px;
 }
 
 /* Banner */
@@ -75,9 +75,39 @@ footer {
   color: #6c757d;
 }
 
-/* Smooth scroll offset fix for browsers that don't support scroll-margin-top */
+/* Smooth scroll */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Ícono flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float img {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+/* Logos en header */
+.header-logo {
+  height: 40px;
+  object-fit: contain;
 }
