@@ -1,34 +1,31 @@
-/* Estilos generales */
+/* Fuentes y resets */
 body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
-/* Menú fijo */
+/* Header fijo */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1030;
   background: white;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-main {
-  padding-top: 80px; /* para compensar el header fijo */
-}
+main { padding-top: 90px; }
 
 /* Secciones */
-section {
-  padding: 70px 0;
-  scroll-margin-top: 80px;
-}
+section { padding: 70px 0; scroll-margin-top: 80px; }
 
-/* Banner */
+/* Banner principal */
 .main-banner {
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+  height: clamp(300px, 50vh, 500px);
   color: white;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,77 +34,51 @@ section {
 }
 
 .main-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  content:""; position:absolute; inset:0; background-color: rgba(0,0,0,0.5);
 }
 
-.main-banner .banner-content {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  padding: 0 20px;
-}
+.banner-content { position: relative; z-index:1; max-width:90%; padding:0 15px; }
 
-.main-banner h1 {
-  font-weight: 700;
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-}
+.banner-content h1 { font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight:700; margin-bottom:.5rem; }
+.banner-content p { font-size: clamp(0.9rem,2vw,1.2rem); }
 
-.main-banner p {
-  font-size: 1.2rem;
-}
+/* Cards de programa y ponentes */
+#programa .card-img-top,
+#ponentes .card-img-top { height: clamp(150px, 25vw, 200px); object-fit:cover; }
+.card-title { font-weight:600; margin-bottom:1rem; }
+#programa ul li { margin-bottom:.5rem; }
 
-/* Ponentes */
-.ponentes .card img {
-  height: 250px;
-  object-fit: cover;
-}
+/* Timeline */
+.timeline { position:relative; padding:2rem 0; margin-left:30px; }
+.timeline::before { content:""; position:absolute; left:20px; top:0; width:4px; height:100%; background:#0d6efd; border-radius:2px; }
+.timeline-item { position:relative; margin-bottom:2rem; }
+.timeline-icon { position:absolute; left:-2px; background:#0d6efd; color:white; width:40px; height:40px; border-radius:50%; text-align:center; line-height:40px; font-weight:bold; font-size:1.2rem; box-shadow:0 2px 6px rgba(0,0,0,0.2); }
+.timeline-content { margin-left:60px; background:white; padding:1rem 1.2rem; border-radius:8px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
+.timeline-content h4 { font-weight:600; margin-bottom:.5rem; }
+.timeline-content p { margin-bottom:0; color:#555; line-height:1.6; }
 
 /* Footer */
-footer {
-  background: #f8f9fa;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #6c757d;
+footer { background:#f8f9fa; padding:20px 0; text-align:center; font-size:0.9rem; color:#6c757d; }
+
+/* WhatsApp flotante */
+.whatsapp-float { position:fixed; bottom:20px; right:20px; z-index:999; background:#25D366; border-radius:50%; padding:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.whatsapp-float:hover { transform: scale(1.1); box-shadow:0 6px 18px rgba(0,0,0,0.3); }
+.whatsapp-float img { width:36px; height:36px; display:block; }
+
+/* Header logos */
+.header-logo { height: clamp(30px, 3vw, 40px); object-fit:contain; }
+
+/* Botones */
+.btn-primary { background:#007bff; border:none; font-weight:500; }
+.btn-primary:hover { background:#0056b3; }
+
+/* Responsive avanzado */
+@media (max-width: 768px){
+  .timeline::before { left:10px; }
+  .timeline-icon { left:-6px; width:32px; height:32px; font-size:1rem; line-height:32px; }
+  .timeline-content { margin-left:50px; padding:.8rem; }
 }
 
-/* Smooth scroll */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Ícono flotante de WhatsApp */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  background-color: #25D366;
-  border-radius: 50%;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-
-.whatsapp-float img {
-  width: 36px;
-  height: 36px;
-  display: block;
-}
-
-/* Logos en header */
-.header-logo {
-  height: 40px;
-  object-fit: contain;
+@media (max-width: 576px){
+  .timeline-content { margin-left:40px; padding:.6rem; }
 }
